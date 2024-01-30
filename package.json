@@ -12,5 +12,5 @@
   "preferGlobal": true,
   "engines": {
     "node": ">=18"
-  },
+  }
 }
