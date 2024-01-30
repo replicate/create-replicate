@@ -6,6 +6,9 @@
   "bin": {
     "create-replicate-app": "./index.js"
   },
+  "scripts": {
+    "test": "npx standard"
+  },
   "repository": "https://github.com/replicate/create-replicate-app",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
   "license": "MIT",
