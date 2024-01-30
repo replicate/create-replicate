@@ -1,4 +1,4 @@
-# create-zeke-app
+# create-replicate-app
 
 Generate a simple Node.js project structure for running AI models with Replicate's API
 
@@ -7,5 +7,5 @@ Generate a simple Node.js project structure for running AI models with Replicate
 Make sure you have a recent version of [Node.js](https://nodejs.org/) installed, then run:
 
 ```sh
-npx create-zeke-app
+npx create-replicate-app
 ```

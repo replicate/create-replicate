@@ -1,12 +1,12 @@
 {
-  "name": "create-zeke-app",
+  "name": "create-replicate-app",
   "version": "1.0.0",
   "description": "Generate a simple Node.js project structure for running AI models with Replicate's API",
   "main": "index.js",
   "bin": {
-    "create-zeke-app": "./index.js"
+    "create-replicate-app": "./index.js"
   },
-  "repository": "https://github.com/zeke/create-zeke-app",
+  "repository": "https://github.com/replicate/create-replicate-app",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
   "license": "MIT",
   "preferGlobal": true
