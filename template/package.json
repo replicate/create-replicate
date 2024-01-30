@@ -1,0 +1,14 @@
+{
+  "name": "my-replicate-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A starter for testing out Replicate's API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "replicate": "*"
+  }
+}
