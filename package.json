@@ -7,6 +7,7 @@
     "create-replicate-app": "./index.js"
   },
   "scripts": {
+    "lint": "npx standard --fix",
     "test": "npx standard"
   },
   "repository": "https://github.com/replicate/create-replicate-app",
