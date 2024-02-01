@@ -51,4 +51,4 @@ fs.writeFileSync(indexFile, newContents)
 console.log('App created successfully!')
 console.log(`Running command: \`node ${targetAppName}/index.js\`\n\n`)
 
-execSync("node index.js", { cwd: targetDir, stdio: 'inherit' })
+execSync('node index.js', { cwd: targetDir, stdio: 'inherit' })
