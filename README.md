@@ -1,6 +1,16 @@
 # create-replicate-app
 
-Generate a simple Node.js project structure for running AI models with Replicate's API
+Generate a simple Node.js project structure for running AI models with [Replicate](https://replicate.com).
+
+What it does:
+
+- Creates a directory for your project
+- Lets you specify any public model as a starting point, or defaults to [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl)
+- Adds a package.json file with necessary dependencies like the [replicate](https://npm.im/replicate) npm package.
+- Runs `npm install`
+- Adds a .env file and helps you add your Replicate API token
+- Gitignores the .env file so you keep your secrets out of source control
+- Runs your app with a simple example input
 
 ## Usage
 
