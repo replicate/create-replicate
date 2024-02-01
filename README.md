@@ -4,7 +4,7 @@ Generate a simple Node.js project structure for running AI models with Replicate
 
 ## Usage
 
-Make sure you have a recent version of [Node.js](https://nodejs.org/) installed, then run:
+Make sure you have [Node.js](https://nodejs.org/) 18 or greater installed, then run:
 
 ```console
 npx create-replicate-app
