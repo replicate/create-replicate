@@ -5,15 +5,18 @@ import path, { dirname } from 'path'
 import { execSync } from 'child_process'
 import minimist from 'minimist'
 import JSON5 from 'json5'
+import readline from 'readline'
+import { promisify } from 'util'
+import open from 'open'
 
 // ESM shenanigans for dealing with local files
 import { fileURLToPath } from 'url'
 import { getModel, getModelInputs, getModelNameWithVersion } from './lib/models.js'
+const readlineSync = await import('readline-sync').then(module => module.default)
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const argv = minimist(process.argv.slice(2))
-
 const targetAppName = argv._[0] || 'my-replicate-app'
 const modelName = argv.model || 'stability-ai/sdxl'
 
@@ -34,6 +37,25 @@ console.log('Copying files...')
 const templateDir = path.join(__dirname, 'template')
 const targetDir = path.join(process.cwd(), targetAppName)
 fs.cpSync(templateDir, targetDir, { recursive: true })
+
+// Get env from existing REPLICATE_API_TOKEN, or prompt user to get it from the browser
+const envFile = path.join(targetDir, '.env')
+
+if (process.env.REPLICATE_API_TOKEN) {
+  fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${process.env.REPLICATE_API_TOKEN}`)
+  console.log('Adding API token to .env file')
+} else {
+  console.log('API token not found in environment.')
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+  const question = promisify(rl.question).bind(rl)
+  const answer = await question('Open your browser to copy a Replicate API token? (Y/n) ')
+  if (answer.toLowerCase() === 'y' || answer === '') {
+    await open('https://replicate.com/account')
+    const token = readlineSync.question('Paste your API token here: ', { hideEchoBack: true })
+    fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${token}`)
+    console.log('API token written to .env file')
+  }
+}
 
 console.log('Setting package name...')
 execSync(`npm pkg set name=${targetAppName}`, { cwd: targetDir, stdio: 'ignore' })
