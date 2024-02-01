@@ -4,8 +4,9 @@
   "description": "Generate a simple Node.js project structure for running AI models with Replicate's API",
   "main": "index.js",
   "bin": {
-    "create-replicate-app": "./index.js"
+    "create-replicate-app": "./index.cjs"
   },
+  "type": "module",
   "scripts": {
     "lint": "npx standard --fix",
     "test": "npx standard"
@@ -16,5 +17,10 @@
   "preferGlobal": true,
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "all-the-public-replicate-models": "^1.97.0",
+    "json5": "^2.2.3",
+    "minimist": "^1.2.8"
   }
 }
