@@ -48,4 +48,38 @@ describe('Node script test', () => {
     const gitignoreFileContents = fs.readFileSync(gitignoreFile, 'utf8')
     expect(gitignoreFileContents).toBe('.env\n.npmrc')
   })
+
+  it('handles basic `model` argument in the form {owner}/{model}', () => {
+    const command = `REPLICATE_API_TOKEN=test_token node index.mjs ${directoryName} --model=yorickvp/llava-13b --run-after-setup=false`
+
+    execSync(command, { stdio: 'ignore', env: process.env })
+
+    // Check if the directory exists
+    expect(fs.existsSync(directoryName)).toBe(true)
+
+    // Check if index.js exists in the directory
+    const indexFile = path.join(directoryName, 'index.js')
+    expect(fileExists(indexFile)).toBe(true)
+
+    // Check if index.js contains the correct model name
+    const indexFileContents = fs.readFileSync(indexFile, 'utf8')
+    expect(indexFileContents).toMatch(/yorickvp\/llava-13b:[a-zA-Z0-9]{40}/)
+  })
+
+  it('handles a `model` argument in the form {owner}/{model}:{version}', () => {
+    const command = `REPLICATE_API_TOKEN=test_token node index.mjs ${directoryName} --model=yorickvp/llava-13b:2cfef05a8e8e648f6e92ddb53fa21a81c04ab2c4f1390a6528cc4e331d608df8 --run-after-setup=false`
+
+    execSync(command, { stdio: 'ignore', env: process.env })
+
+    // Check if the directory exists
+    expect(fs.existsSync(directoryName)).toBe(true)
+
+    // Check if index.js exists in the directory
+    const indexFile = path.join(directoryName, 'index.js')
+    expect(fileExists(indexFile)).toBe(true)
+
+    // Check if index.js contains the correct model name
+    const indexFileContents = fs.readFileSync(indexFile, 'utf8')
+    expect(indexFileContents).toContain("const model = 'yorickvp/llava-13b:2cfef05a8e8e648f6e92ddb53fa21a81c04ab2c4f1390a6528cc4e331d608df8'")
+  })
 })

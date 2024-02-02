@@ -16,9 +16,10 @@ const readlineSync = await import('readline-sync').then(module => module.default
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const defaultArgs = { 'run-after-setup': true }
-const commandLineArgs = minimist(process.argv.slice(2), { boolean: ['run-after-setup'] })
-const args = { ...defaultArgs, ...commandLineArgs }
+const args = minimist(process.argv.slice(2), {
+  boolean: ['run-after-setup'],
+  default: { 'run-after-setup': true }
+})
 
 const targetAppName = args._[0] || 'my-replicate-app'
 const modelName = args.model || 'stability-ai/sdxl'
@@ -31,7 +32,10 @@ try {
   process.exit()
 }
 
-const modelNameWithVersion = getModelNameWithVersion(model)
+// If user has provided a model version, use it. Otherwise, use the latest version
+const modelVersionRegexp = /.*:[a-fA-F0-9]{64}$/
+const modelNameWithVersion = modelName.match(modelVersionRegexp) ? modelName : getModelNameWithVersion(model)
+
 const inputs = getModelInputs(model)
 
 console.log(`Creating project "${targetAppName}"...`)
@@ -74,8 +78,6 @@ const newContents = indexFileContents
 fs.writeFileSync(indexFile, newContents)
 
 console.log('App created successfully!')
-
-console.log({ args })
 
 if (args['run-after-setup']) {
   console.log(`Running command: \`node ${targetAppName}/index.js\`\n\n`)
