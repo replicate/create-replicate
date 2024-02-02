@@ -16,9 +16,12 @@ const readlineSync = await import('readline-sync').then(module => module.default
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const argv = minimist(process.argv.slice(2))
-const targetAppName = argv._[0] || 'my-replicate-app'
-const modelName = argv.model || 'stability-ai/sdxl'
+const defaultArgs = { 'run-after-setup': true }
+const commandLineArgs = minimist(process.argv.slice(2), { boolean: ['run-after-setup'] })
+const args = { ...defaultArgs, ...commandLineArgs }
+
+const targetAppName = args._[0] || 'my-replicate-app'
+const modelName = args.model || 'stability-ai/sdxl'
 
 let model
 try {
@@ -71,6 +74,13 @@ const newContents = indexFileContents
 fs.writeFileSync(indexFile, newContents)
 
 console.log('App created successfully!')
-console.log(`Running command: \`node ${targetAppName}/index.js\`\n\n`)
 
-execSync('node index.js', { cwd: targetDir, stdio: 'inherit' })
+console.log({ args })
+
+if (args['run-after-setup']) {
+  console.log(`Running command: \`node ${targetAppName}/index.js\`\n\n`)
+  execSync('node index.js', { cwd: targetDir, stdio: 'inherit' })
+} else {
+  console.log('To run your app, execute the following command:')
+  console.log(`cd ${targetAppName} && node index.js`)
+}

@@ -8,8 +8,8 @@
   },
   "type": "module",
   "scripts": {
-    "lint": "npx standard --fix",
-    "test": "npx standard"
+    "lint": "standard --fix",
+    "test": "vitest run && standard"
   },
   "repository": "https://github.com/replicate/create-replicate-app",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
@@ -24,5 +24,9 @@
     "minimist": "^1.2.8",
     "open": "^10.0.3",
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0",
+    "vitest": "^1.2.2"
   }
 }
