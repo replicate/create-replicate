@@ -10,7 +10,10 @@ if (!process.env.REPLICATE_API_TOKEN) {
   process.exit()
 }
 
-const replicate = new Replicate({ auth: process.env.REPLICATE_API_TOKEN })
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_TOKEN,
+  userAgent: 'https://npm.im/create-replicate'
+})
 const model = '{{MODEL}}'
 const input = '{{INPUTS}}'
 
