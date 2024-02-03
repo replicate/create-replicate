@@ -26,10 +26,14 @@ You can specify an optional name for your project:
 npm create replicate-app foo
 ```
 
-You can also specify which model you want to use as a starting point:
+You can also specify which model you want to use as a starting point. The latest version of the model will be used:
 
 ```console
 npm create replicate-app my-image-interrogator --model=yorickvp/llava-13b
 ```
 
-:point_up: This will work any model that is public, has at least one published version, and at least one example prediction.
+You can also specify a version of the model you want to use:
+
+```console
+npm create replicate-app my-image-interrogator --model=yorickvp/llava-13b:2cfef05a8e8e648f6e92ddb53fa21a81c04ab2c4f1390a6528cc4e331d608df8
+```
