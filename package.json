@@ -4,7 +4,7 @@
   "description": "Generate a simple Node.js project structure for running AI models with Replicate's API",
   "main": "index.js",
   "bin": {
-    "create-replicate-app": "./index.cjs"
+    "create-replicate-app": "./index.mjs"
   },
   "type": "module",
   "scripts": {
