@@ -26,25 +26,7 @@ const args = minimist(process.argv.slice(2), {
 })
 args.packageName = args._[0] || 'my-replicate-app'
 
-console.log({ args })
-
-const targetAppName = args._[0] || 'my-replicate-app'
-
-let model
-try {
-  model = await getModel(args.model)
-} catch (e) {
-  console.error('Model not found:', args.model)
-  process.exit()
-}
-
-// If user has provided a model version, use it. Otherwise, use the latest version
-const modelVersionRegexp = /.*:[a-fA-F0-9]{64}$/
-const modelNameWithVersion = args.model.match(modelVersionRegexp) ? args.model : getModelNameWithVersion(model)
-
-const inputs = getModelInputs(model)
-
-console.log(`Creating project "${targetAppName}"...`)
+console.log(`Creating project "${args.packageName}"...`)
 console.log(`Model: ${args.model}...`)
 console.log('Copying files...')
 const templateDir = path.join(__dirname, 'template')
@@ -75,6 +57,20 @@ execSync(`npm pkg set name=${args.packageName}`, { cwd: targetDir, stdio: 'ignor
 
 console.log('Installing dependencies...')
 execSync('npm install', { cwd: targetDir, stdio: 'ignore' })
+
+let model
+try {
+  model = await getModel(args.model)
+} catch (e) {
+  console.error('Model not found:', args.model)
+  process.exit()
+}
+
+// If user has provided a model version, use it. Otherwise, use the latest version
+const modelVersionRegexp = /.*:[a-fA-F0-9]{64}$/
+const modelNameWithVersion = args.model.match(modelVersionRegexp) ? args.model : getModelNameWithVersion(model)
+
+const inputs = getModelInputs(model)
 
 const indexFile = path.join(targetDir, 'index.js')
 const indexFileContents = fs.readFileSync(indexFile, 'utf8')
