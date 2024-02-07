@@ -31,7 +31,7 @@ const targetAppName = args._[0] || 'my-replicate-app'
 
 let model
 try {
-  model = getModel(args.model)
+  model = await getModel(args.model)
 } catch (e) {
   console.error('Model not found:', args.model)
   process.exit()
