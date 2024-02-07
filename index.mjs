@@ -24,6 +24,7 @@ const args = minimist(process.argv.slice(2), {
 
   }
 })
+args.packageName = args._[0] || 'my-replicate-app'
 
 console.log({ args })
 
@@ -47,7 +48,7 @@ console.log(`Creating project "${targetAppName}"...`)
 console.log(`Model: ${args.model}...`)
 console.log('Copying files...')
 const templateDir = path.join(__dirname, 'template')
-const targetDir = path.join(process.cwd(), targetAppName)
+const targetDir = path.join(process.cwd(), args.packageName)
 fs.cpSync(templateDir, targetDir, { recursive: true })
 
 // Get env from existing REPLICATE_API_TOKEN, or prompt user to get it from the browser
@@ -70,7 +71,7 @@ if (process.env.REPLICATE_API_TOKEN) {
 }
 
 console.log('Setting package name...')
-execSync(`npm pkg set name=${targetAppName}`, { cwd: targetDir, stdio: 'ignore' })
+execSync(`npm pkg set name=${args.packageName}`, { cwd: targetDir, stdio: 'ignore' })
 
 console.log('Installing dependencies...')
 execSync('npm install', { cwd: targetDir, stdio: 'ignore' })
@@ -85,9 +86,9 @@ fs.writeFileSync(indexFile, newContents)
 console.log('App created successfully!')
 
 if (args['run-after-setup']) {
-  console.log(`Running command: \`node ${targetAppName}/index.js\`\n\n`)
+  console.log(`Running command: \`node ${args.packageName}/index.js\`\n\n`)
   execSync('node index.js', { cwd: targetDir, stdio: 'inherit' })
 } else {
   console.log('To run your app, execute the following command:')
-  console.log(`cd ${targetAppName} && node index.js`)
+  console.log(`cd ${args.packageName} && node index.js`)
 }
