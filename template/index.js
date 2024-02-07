@@ -12,7 +12,7 @@ if (!process.env.REPLICATE_API_TOKEN) {
 
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
-  userAgent: 'https://npm.im/create-replicate'
+  userAgent: 'https://www.npmjs.com/package/create-replicate'
 })
 const model = '{{MODEL}}'
 const input = '{{INPUTS}}'
