@@ -38,7 +38,7 @@ const envFile = path.join(targetDir, '.env')
 
 if (process.env.REPLICATE_API_TOKEN) {
   fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${process.env.REPLICATE_API_TOKEN}`)
-  console.log('Adding API token to .env file')
+  console.log(`Adding API token ${process.env.REPLICATE_API_TOKEN.slice(0, 5)} to .env file...`)
 } else {
   console.log('API token not found in environment.')
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
@@ -47,9 +47,21 @@ if (process.env.REPLICATE_API_TOKEN) {
   if (answer.toLowerCase() === 'y' || answer === '') {
     await open('https://replicate.com/account')
     const token = readlineSync.question('Paste your API token here: ', { hideEchoBack: true })
+
+    // Add the pasted token to the user's local .env file for when they run their project
     fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${token}`)
-    console.log('API token written to .env file')
+
+    // Also add the pasted token to THIS script's environment, so we can use it to make Replicate API calls
+    process.env.REPLICATE_API_TOKEN = token
+
+    console.log(`API token ${process.env.REPLICATE_API_TOKEN.slice(0, 5)} written to .env file`)
   }
+}
+
+// Check use-provided API token looks legit before proceeding
+if (!process.env.REPLICATE_API_TOKEN.startsWith('r8_')) {
+  console.log('Invalid API token:', process.env.REPLICATE_API_TOKEN)
+  // process.exit(1)
 }
 
 console.log('Setting package name...')
@@ -58,13 +70,8 @@ execSync(`npm pkg set name=${args.packageName}`, { cwd: targetDir, stdio: 'ignor
 console.log('Installing dependencies...')
 execSync('npm install', { cwd: targetDir, stdio: 'ignore' })
 
-let model
-try {
-  model = await getModel(args.model)
-} catch (e) {
-  console.error('Model not found:', args.model)
-  process.exit()
-}
+console.log('Fetching model metadata using Replicate API...')
+const model = await getModel(args.model)
 
 // If user has provided a model version, use it. Otherwise, use the latest version
 const modelVersionRegexp = /.*:[a-fA-F0-9]{64}$/
@@ -72,6 +79,7 @@ const modelNameWithVersion = args.model.match(modelVersionRegexp) ? args.model :
 
 const inputs = getModelInputs(model)
 
+console.log('Adding model data and inputs to index.js...')
 const indexFile = path.join(targetDir, 'index.js')
 const indexFileContents = fs.readFileSync(indexFile, 'utf8')
 const newContents = indexFileContents
@@ -82,7 +90,7 @@ fs.writeFileSync(indexFile, newContents)
 console.log('App created successfully!')
 
 if (args['run-after-setup']) {
-  console.log(`Running command: \`node ${args.packageName}/index.js\`\n\n`)
+  console.log(`Running command: \`node ${args.packageName}/index.js\``)
   execSync('node index.js', { cwd: targetDir, stdio: 'inherit' })
 } else {
   console.log('To run your app, execute the following command:')

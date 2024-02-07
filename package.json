@@ -19,11 +19,11 @@
     "node": ">=18"
   },
   "dependencies": {
-    "all-the-public-replicate-models": "^1.104.0",
     "json5": "^2.2.3",
     "minimist": "^1.2.8",
     "open": "^10.0.3",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "replicate": "^0.25.2"
   },
   "devDependencies": {
     "standard": "^17.1.0",
