@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "lint": "standard --fix",
-    "test": "vitest run && standard"
+    "test": "vitest run --silent=false && standard"
   },
   "repository": "https://github.com/replicate/create-replicate",
   "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
