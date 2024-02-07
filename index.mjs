@@ -18,28 +18,33 @@ const __dirname = dirname(__filename)
 
 const args = minimist(process.argv.slice(2), {
   boolean: ['run-after-setup'],
-  default: { 'run-after-setup': true }
+  default: {
+    'run-after-setup': true,
+    model: 'stability-ai/sdxl'
+
+  }
 })
 
+console.log({ args })
+
 const targetAppName = args._[0] || 'my-replicate-app'
-const modelName = args.model || 'stability-ai/sdxl'
 
 let model
 try {
-  model = getModel(modelName)
+  model = getModel(args.model)
 } catch (e) {
-  console.error('Model not found:', modelName)
+  console.error('Model not found:', args.model)
   process.exit()
 }
 
 // If user has provided a model version, use it. Otherwise, use the latest version
 const modelVersionRegexp = /.*:[a-fA-F0-9]{64}$/
-const modelNameWithVersion = modelName.match(modelVersionRegexp) ? modelName : getModelNameWithVersion(model)
+const modelNameWithVersion = args.model.match(modelVersionRegexp) ? args.model : getModelNameWithVersion(model)
 
 const inputs = getModelInputs(model)
 
 console.log(`Creating project "${targetAppName}"...`)
-console.log(`Model: ${modelName}...`)
+console.log(`Model: ${args.model}...`)
 console.log('Copying files...')
 const templateDir = path.join(__dirname, 'template')
 const targetDir = path.join(process.cwd(), targetAppName)
