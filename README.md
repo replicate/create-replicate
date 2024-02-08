@@ -1,6 +1,6 @@
-# create-replicate
+# create-replicate 
 
-Generate a simple Node.js project structure for running AI models with [Replicate](https://replicate.com).
+⚡️🐢⚡️ Generate a simple Node.js project structure for running AI models with [Replicate](https://replicate.com).
 
 What it does:
 
