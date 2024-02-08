@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to this app!
+Thanks for contributing to this project! ❤️🧡💛
 
 ## Development
 
