@@ -1,6 +1,6 @@
 {
   "name": "create-replicate",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Generate a simple Node.js project structure for running AI models with Replicate's API",
   "main": "index.js",
   "bin": {

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/replicate/create-replicate/compare/v1.4.1...v1.5.0) (2024-02-08)
+
+
+### Features
+
+* update url to include utm tags ([#22](https://github.com/replicate/create-replicate/issues/22)) ([195ef87](https://github.com/replicate/create-replicate/commit/195ef87d34df67aa2570449f89fbc9b99fd2de5a))
+
 ## [1.4.1](https://github.com/replicate/create-replicate/compare/v1.4.0...v1.4.1) (2024-02-08)
 
 
