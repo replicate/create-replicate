@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/replicate/create-replicate/compare/v1.4.0...v1.4.1) (2024-02-08)
+
+
+### Bug Fixes
+
+* set npm registry url ([#19](https://github.com/replicate/create-replicate/issues/19)) ([12a9c5c](https://github.com/replicate/create-replicate/commit/12a9c5c4f50978e7e96005449a592531fe785626))
+
 ## [1.4.0](https://github.com/replicate/create-replicate/compare/v1.3.0...v1.4.0) (2024-02-08)
 
 
