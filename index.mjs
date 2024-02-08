@@ -17,12 +17,12 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const args = minimist(process.argv.slice(2), {
-  boolean: ['run-after-setup'],
-  default: {
-    'run-after-setup': true,
-    model: 'stability-ai/sdxl'
+    boolean: ['run-after-setup'],
+    default: {
+        'run-after-setup': true,
+        model: 'stability-ai/sdxl'
 
-  }
+    }
 })
 args.packageName = args._[0] || 'my-replicate-app'
 
@@ -37,31 +37,31 @@ fs.cpSync(templateDir, targetDir, { recursive: true })
 const envFile = path.join(targetDir, '.env')
 
 if (process.env.REPLICATE_API_TOKEN) {
-  fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${process.env.REPLICATE_API_TOKEN}`)
-  console.log(`Adding API token ${process.env.REPLICATE_API_TOKEN.slice(0, 5)} to .env file...`)
+    fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${process.env.REPLICATE_API_TOKEN}`)
+    console.log(`Adding API token ${process.env.REPLICATE_API_TOKEN.slice(0, 5)} to .env file...`)
 } else {
-  console.log('API token not found in environment.')
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
-  const question = promisify(rl.question).bind(rl)
-  const answer = await question('Open your browser to copy a Replicate API token? (Y/n) ')
-  if (answer.toLowerCase() === 'y' || answer === '') {
-    await open('https://replicate.com/account')
-    const token = readlineSync.question('Paste your API token here: ', { hideEchoBack: true })
+    console.log('API token not found in environment.')
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+    const question = promisify(rl.question).bind(rl)
+    const answer = await question('Open your browser to copy a Replicate API token? (Y/n) ')
+    if (answer.toLowerCase() === 'y' || answer === '') {
+        await open('https://replicate.com/account?utm_campaign=create-replicate&utm_source=create-replicate')
+        const token = readlineSync.question('Paste your API token here: ', { hideEchoBack: true })
 
-    // Add the pasted token to the user's local .env file for when they run their project
-    fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${token}`)
+        // Add the pasted token to the user's local .env file for when they run their project
+        fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${token}`)
 
-    // Also add the pasted token to THIS script's environment, so we can use it to make Replicate API calls
-    process.env.REPLICATE_API_TOKEN = token
+        // Also add the pasted token to THIS script's environment, so we can use it to make Replicate API calls
+        process.env.REPLICATE_API_TOKEN = token
 
-    console.log(`API token ${process.env.REPLICATE_API_TOKEN.slice(0, 5)} written to .env file`)
-  }
+        console.log(`API token ${process.env.REPLICATE_API_TOKEN.slice(0, 5)} written to .env file`)
+    }
 }
 
 // Check use-provided API token looks legit before proceeding
 if (!process.env.REPLICATE_API_TOKEN.startsWith('r8_')) {
-  console.log('Invalid API token:', process.env.REPLICATE_API_TOKEN)
-  // process.exit(1)
+    console.log('Invalid API token:', process.env.REPLICATE_API_TOKEN)
+    // process.exit(1)
 }
 
 console.log('Setting package name...')
@@ -83,16 +83,16 @@ console.log('Adding model data and inputs to index.js...')
 const indexFile = path.join(targetDir, 'index.js')
 const indexFileContents = fs.readFileSync(indexFile, 'utf8')
 const newContents = indexFileContents
-  .replace('{{MODEL}}', modelNameWithVersion)
-  .replace('\'{{INPUTS}}\'', JSON5.stringify(inputs, null, 2))
+    .replace('{{MODEL}}', modelNameWithVersion)
+    .replace('\'{{INPUTS}}\'', JSON5.stringify(inputs, null, 2))
 fs.writeFileSync(indexFile, newContents)
 
 console.log('App created successfully!')
 
 if (args['run-after-setup']) {
-  console.log(`Running command: \`node ${args.packageName}/index.js\``)
-  execSync('node index.js', { cwd: targetDir, stdio: 'inherit' })
+    console.log(`Running command: \`node ${args.packageName}/index.js\``)
+    execSync('node index.js', { cwd: targetDir, stdio: 'inherit' })
 } else {
-  console.log('To run your app, execute the following command:')
-  console.log(`cd ${args.packageName} && node index.js`)
+    console.log('To run your app, execute the following command:')
+    console.log(`cd ${args.packageName} && node index.js`)
 }
