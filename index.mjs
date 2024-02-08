@@ -45,7 +45,7 @@ if (process.env.REPLICATE_API_TOKEN) {
   const question = promisify(rl.question).bind(rl)
   const answer = await question('Open your browser to copy a Replicate API token? (Y/n) ')
   if (answer.toLowerCase() === 'y' || answer === '') {
-    await open('https://replicate.com/account')
+    await open('https://replicate.com/account?utm_campaign=create-replicate&utm_source=create-replicate')
     const token = readlineSync.question('Paste your API token here: ', { hideEchoBack: true })
 
     // Add the pasted token to the user's local .env file for when they run their project
