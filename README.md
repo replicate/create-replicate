@@ -17,23 +17,23 @@ What it does:
 Make sure you have [Node.js](https://nodejs.org/) 18 or greater installed, then run:
 
 ```console
-npm create replicate
+npx create-replicate@latest
 ```
 
 You can specify an optional name for your project:
 
 ```console
-npm create replicate foo
+npx create-replicate@latest foo
 ```
 
 You can also specify which model you want to use as a starting point. The latest version of the model will be used:
 
 ```console
-npm create replicate my-image-interrogator --model=yorickvp/llava-13b
+npx create-replicate@latest my-image-interrogator --model=yorickvp/llava-13b
 ```
 
 You can also specify a version of the model you want to use:
 
 ```console
-npm create replicate my-image-interrogator --model=yorickvp/llava-13b:2cfef05a8e8e648f6e92ddb53fa21a81c04ab2c4f1390a6528cc4e331d608df8
+npx create-replicate@latest my-image-interrogator --model=yorickvp/llava-13b:2cfef05a8e8e648f6e92ddb53fa21a81c04ab2c4f1390a6528cc4e331d608df8
 ```
