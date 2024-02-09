@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.0](https://github.com/replicate/create-replicate/compare/v1.5.0...v1.6.0) (2024-02-09)
+
+
+### Features
+
+* run with --version flag to display version ([#26](https://github.com/replicate/create-replicate/issues/26)) ([1c313d9](https://github.com/replicate/create-replicate/commit/1c313d948fbf385174c9b389db5963d5eccfc718))
+
+
+### Bug Fixes
+
+* token validation ([#24](https://github.com/replicate/create-replicate/issues/24)) ([307b362](https://github.com/replicate/create-replicate/commit/307b3624924fd908ecfeed35f67edf01d91eb497))
+
 ## [1.5.0](https://github.com/replicate/create-replicate/compare/v1.4.1...v1.5.0) (2024-02-08)
 
 
