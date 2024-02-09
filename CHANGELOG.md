@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/replicate/create-replicate/compare/v1.7.0...v1.7.1) (2024-02-09)
+
+
+### Bug Fixes
+
+* favor npx over npm because of flag weirdness ([#30](https://github.com/replicate/create-replicate/issues/30)) ([363bfd5](https://github.com/replicate/create-replicate/commit/363bfd53963a902c4f7350bf9101a41b11e3418d))
+
 ## [1.7.0](https://github.com/replicate/create-replicate/compare/v1.6.0...v1.7.0) (2024-02-09)
 
 
