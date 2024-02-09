@@ -23,10 +23,16 @@ const args = minimist(process.argv.slice(2), {
   default: {
     'run-after-setup': true,
     model: 'stability-ai/sdxl'
-
   }
 })
 args.packageName = args._[0] || 'my-replicate-app'
+
+// Display version number if --version flag is present
+if (args.version) {
+  const { version } = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'))
+  console.log(version)
+  process.exit()
+}
 
 console.log(`Creating project "${args.packageName}"...`)
 console.log(`Model: ${args.model}...`)
