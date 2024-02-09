@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/replicate/create-replicate/compare/v1.6.0...v1.7.0) (2024-02-09)
+
+
+### Features
+
+* add debug flag ([#28](https://github.com/replicate/create-replicate/issues/28)) ([9164149](https://github.com/replicate/create-replicate/commit/91641494d371d3df933ac741d978356426df8766))
+
 ## [1.6.0](https://github.com/replicate/create-replicate/compare/v1.5.0...v1.6.0) (2024-02-09)
 
 
