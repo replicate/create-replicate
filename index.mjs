@@ -62,7 +62,7 @@ if (process.env.REPLICATE_API_TOKEN) {
 
 // Check use-provided API token looks legit before proceeding
 if (!isValidToken(process.env.REPLICATE_API_TOKEN)) {
-  console.log('Invalid API token:', process.env.REPLICATE_API_TOKEN)
+  console.log('Invalid API token:', redactToken(process.env.REPLICATE_API_TOKEN))
   console.log('Go to https://replicate.com/account, copy a valid token, then re-run this command')
   process.exit()
 }
