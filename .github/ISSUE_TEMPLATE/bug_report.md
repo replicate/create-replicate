@@ -19,4 +19,4 @@ A clear and concise description of what you expected to happen.
 **Environment**
  - OS: 
  - Node.js version (Run `node --version`) 
- - Version (Run `npm create replicate --version`)
+ - Version (Run `npx create-replicate --version`)
