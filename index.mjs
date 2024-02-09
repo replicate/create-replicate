@@ -19,13 +19,18 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const args = minimist(process.argv.slice(2), {
-  boolean: ['run-after-setup'],
+  boolean: ['run-after-setup', 'debug'],
   default: {
     'run-after-setup': true,
+    debug: false,
     model: 'stability-ai/sdxl'
   }
 })
 args.packageName = args._[0] || 'my-replicate-app'
+
+if (args.debug) {
+  console.debug({ args })
+}
 
 // Display version number if --version flag is present
 if (args.version) {
