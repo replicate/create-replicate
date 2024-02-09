@@ -12,6 +12,8 @@ import open from 'open'
 // ESM shenanigans for dealing with local files
 import { fileURLToPath } from 'url'
 import { getModel, getModelInputs, getModelNameWithVersion } from './lib/models.js'
+import { isValidToken, redactToken } from './lib/token.js'
+
 const readlineSync = await import('readline-sync').then(module => module.default)
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -38,7 +40,7 @@ const envFile = path.join(targetDir, '.env')
 
 if (process.env.REPLICATE_API_TOKEN) {
   fs.writeFileSync(envFile, `REPLICATE_API_TOKEN=${process.env.REPLICATE_API_TOKEN}`)
-  console.log(`Adding API token ${process.env.REPLICATE_API_TOKEN.slice(0, 5)} to .env file...`)
+  console.log(`Adding API token ${redactToken(process.env.REPLICATE_API_TOKEN)} to .env file...`)
 } else {
   console.log('API token not found in environment.')
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
@@ -54,14 +56,15 @@ if (process.env.REPLICATE_API_TOKEN) {
     // Also add the pasted token to THIS script's environment, so we can use it to make Replicate API calls
     process.env.REPLICATE_API_TOKEN = token
 
-    console.log(`API token ${process.env.REPLICATE_API_TOKEN.slice(0, 5)} written to .env file`)
+    console.log(`API token ${redactToken(process.env.REPLICATE_API_TOKEN)} written to .env file`)
   }
 }
 
 // Check use-provided API token looks legit before proceeding
-if (!process.env.REPLICATE_API_TOKEN.startsWith('r8_')) {
-  console.log('Invalid API token:', process.env.REPLICATE_API_TOKEN)
-  // process.exit(1)
+if (!isValidToken(process.env.REPLICATE_API_TOKEN)) {
+  console.log('Invalid API token:', redactToken(process.env.REPLICATE_API_TOKEN))
+  console.log('Go to https://replicate.com/account, copy a valid token, then re-run this command')
+  process.exit()
 }
 
 console.log('Setting package name...')
