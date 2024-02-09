@@ -29,7 +29,7 @@ const args = minimist(process.argv.slice(2), {
 args.packageName = args._[0] || 'my-replicate-app'
 
 if (args.debug) {
-  console.debug({args})
+  console.debug({ args })
 }
 
 // Display version number if --version flag is present
