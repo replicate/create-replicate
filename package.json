@@ -23,7 +23,8 @@
     "minimist": "^1.2.8",
     "open": "^10.0.3",
     "readline-sync": "^1.4.10",
-    "replicate": "^0.25.2"
+    "replicate": "^0.25.2",
+    "update-notifier": "^7.0.0"
   },
   "devDependencies": {
     "standard": "^17.1.0",
