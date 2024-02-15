@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/replicate/create-replicate/compare/v1.7.1...v1.8.0) (2024-02-14)
+
+
+### Features
+
+* link to API tokens page ([#35](https://github.com/replicate/create-replicate/issues/35)) ([19f94d5](https://github.com/replicate/create-replicate/commit/19f94d530ad2f3aecd512c87664d48773f1dd856))
+
 ## [1.7.1](https://github.com/replicate/create-replicate/compare/v1.7.0...v1.7.1) (2024-02-09)
 
 
