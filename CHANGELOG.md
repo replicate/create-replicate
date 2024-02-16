@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/replicate/create-replicate/compare/v1.8.0...v1.8.1) (2024-02-16)
+
+
+### Bug Fixes
+
+* UTM source ([#37](https://github.com/replicate/create-replicate/issues/37)) ([5226579](https://github.com/replicate/create-replicate/commit/52265792eb90f379be709d8307e23f2d6dfa65fd))
+
 ## [1.8.0](https://github.com/replicate/create-replicate/compare/v1.7.1...v1.8.0) (2024-02-14)
 
 
