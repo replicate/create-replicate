@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/replicate/create-replicate/compare/v1.8.1...v1.8.2) (2024-02-20)
+
+
+### Bug Fixes
+
+* copy .gitignore file when creating new project ([#41](https://github.com/replicate/create-replicate/issues/41)) ([cdec0ad](https://github.com/replicate/create-replicate/commit/cdec0ad3bbb911e4574b30912df19342e33b180a))
+
 ## [1.8.1](https://github.com/replicate/create-replicate/compare/v1.8.0...v1.8.1) (2024-02-16)
 
 
