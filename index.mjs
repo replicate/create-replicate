@@ -46,6 +46,11 @@ const templateDir = path.join(__dirname, 'template')
 const targetDir = path.join(process.cwd(), args.packageName)
 fs.cpSync(templateDir, targetDir, { recursive: true })
 
+// Copy hidden files too
+const gitignoreSrc = path.join(templateDir, '.gitignore')
+const gitignoreDest = path.join(targetDir, '.gitignore')
+fs.copyFileSync(gitignoreSrc, gitignoreDest)
+
 // Get env from existing REPLICATE_API_TOKEN, or prompt user to get it from the browser
 const envFile = path.join(targetDir, '.env')
 
