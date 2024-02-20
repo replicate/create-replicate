@@ -31,11 +31,11 @@ describe('Node script test', () => {
     // Check if the directory exists
     expect(fs.existsSync(directoryName)).toBe(true)
 
-    // Check if package.json exists in the directory
-    expect(fileExists(path.join(directoryName, 'package.json'))).toBe(true)
-
-    // Check if index.js exists in the directory
+    // Check for expected files
+    expect(fileExists(path.join(directoryName, '.gitignore'))).toBe(true)
+    expect(fileExists(path.join(directoryName, '.env'))).toBe(true)
     expect(fileExists(path.join(directoryName, 'index.js'))).toBe(true)
+    expect(fileExists(path.join(directoryName, 'package.json'))).toBe(true)
 
     // Check if .env exists in the directory with test token
     const envFile = path.join(directoryName, '.env')
