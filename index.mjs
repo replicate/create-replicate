@@ -93,13 +93,24 @@ const modelNameWithVersion = args.model.match(modelVersionRegexp) ? args.model :
 
 const inputs = getModelInputs(model)
 
-console.log('Adding model data and inputs to index.js...')
-const indexFile = path.join(targetDir, 'index.js')
-const indexFileContents = fs.readFileSync(indexFile, 'utf8')
-const newContents = indexFileContents
-  .replace('{{MODEL}}', modelNameWithVersion)
-  .replace('\'{{INPUTS}}\'', JSON5.stringify(inputs, null, 2))
-fs.writeFileSync(indexFile, newContents)
+const pipeline = [
+  {
+    model: modelNameWithVersion,
+    input: inputs
+  }
+]
+
+const pipelineFile = path.join(targetDir, 'pipeline.json')
+fs.writeFileSync(pipelineFile, JSON.stringify(pipeline, null, 2))
+console.log('Pipeline written to pipeline.json')
+
+// console.log('Adding model data and inputs to index.js...')
+// const indexFile = path.join(targetDir, 'index.js')
+// const indexFileContents = fs.readFileSync(indexFile, 'utf8')
+// const newContents = indexFileContents
+//   .replace('{{MODEL}}', modelNameWithVersion)
+//   .replace('\'{{INPUTS}}\'', JSON5.stringify(inputs, null, 2))
+// fs.writeFileSync(indexFile, newContents)
 
 console.log('App created successfully!')
 
