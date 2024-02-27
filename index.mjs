@@ -98,7 +98,6 @@ const modelNameWithVersion = args.model.match(modelVersionRegexp) ? args.model :
 
 const inputs = getModelInputs(model)
 
-console.log('Adding model data and inputs to index.js...')
 const indexFile = path.join(targetDir, 'index.js')
 const indexFileContents = fs.readFileSync(indexFile, 'utf8')
 const newContents = indexFileContents
@@ -109,9 +108,17 @@ fs.writeFileSync(indexFile, newContents)
 console.log('App created successfully!')
 
 if (args['run-after-setup']) {
-  console.log(`Running command: \`node ${args.packageName}/index.js\``)
+  console.log(`Running command: \`node ${args.packageName}/index.js\`\n`)
+  console.log('--- START OF OUTPUT ---')
   execSync('node index.js', { cwd: targetDir, stdio: 'inherit' })
+  console.log('--- END OF OUTPUT ---')
 } else {
   console.log('To run your app, execute the following command:')
   console.log(`cd ${args.packageName} && node index.js`)
 }
+
+console.log('')
+console.log('To learn more about configuring this model check out the documentation:')
+console.log(` - Model API Documentation: https://replicate.com/${model.owner}/${model.name}/api`)
+console.log(' - Repliacte Documentation: https://replicate.com/docs/get-started/nodejs')
+console.log(' - Replicate JavaScript Client: https://github.com/replicate/replicate-javascript#readme')
