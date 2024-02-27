@@ -47,7 +47,7 @@ const targetDir = path.join(process.cwd(), args.packageName)
 fs.cpSync(templateDir, targetDir, { recursive: true })
 
 // Copy hidden files too
-const gitignoreSrc = path.join(templateDir, '.gitignore')
+const gitignoreSrc = path.join(templateDir, 'gitignore')
 const gitignoreDest = path.join(targetDir, '.gitignore')
 fs.copyFileSync(gitignoreSrc, gitignoreDest)
 

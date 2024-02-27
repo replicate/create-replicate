@@ -6,6 +6,19 @@
   "bin": {
     "create-replicate": "./index.mjs"
   },
+  "files": [
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "index.mjs",
+    "lib/models.js",
+    "lib/token.js",
+    "package.json",
+    "template/gitignore",
+    "template/README.md",
+    "template/index.js",
+    "template/package.json"
+  ],
   "type": "module",
   "scripts": {
     "lint": "standard --fix",
