@@ -14,7 +14,7 @@
     "lib/models.js",
     "lib/token.js",
     "package.json",
-    "template/.gitignore",
+    "template/gitignore",
     "template/README.md",
     "template/index.js",
     "template/package.json"
