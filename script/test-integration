@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+tmpdir="$(mktemp -d)"
+packname=$(npm pack --loglevel error --pack-destination="$tmpdir")
+cd "$tmpdir"
+npm init --loglevel error -y > /dev/null
+npm install --loglevel error "file:/$tmpdir/$packname" > /dev/null
+
+npm exec create-replicate
