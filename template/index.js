@@ -12,4 +12,5 @@ const input = '{{INPUTS}}'
 console.log({ model, input })
 console.log('Running...')
 const output = await replicate.run(model, { input })
-console.log('Done!', output)
+console.log(output)
+console.log('Done!')

@@ -101,6 +101,7 @@ const inputs = getModelInputs(model)
 console.log('Adding model data and inputs to index.js...')
 const indexFile = path.join(targetDir, 'index.js')
 const indexFileContents = fs.readFileSync(indexFile, 'utf8')
+
 const newContents = indexFileContents
   .replace('{{MODEL}}', modelNameWithVersion)
   .replace('\'{{INPUTS}}\'', JSON5.stringify(inputs, null, 2))
