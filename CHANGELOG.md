@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.3](https://github.com/replicate/create-replicate/compare/v1.8.2...v1.8.3) (2024-02-27)
+
+
+### Bug Fixes
+
+* failing command due to missing .gitignore file ([#43](https://github.com/replicate/create-replicate/issues/43)) ([ccf0cb3](https://github.com/replicate/create-replicate/commit/ccf0cb3def125662cbede6b815ee69dc25ddc2e0))
+
 ## [1.8.2](https://github.com/replicate/create-replicate/compare/v1.8.1...v1.8.2) (2024-02-20)
 
 
