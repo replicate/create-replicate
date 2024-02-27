@@ -39,6 +39,5 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
       # Build a production tarball and run the integration tests against it.
       - run: ./script/test-integration
