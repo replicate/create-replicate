@@ -8,11 +8,16 @@ import JSON5 from 'json5'
 import readline from 'readline'
 import { promisify } from 'util'
 import open from 'open'
+import updateNotifier from 'update-notifier'
+import packageJson from './package.json'
 
 // ESM shenanigans for dealing with local files
 import { fileURLToPath } from 'url'
 import { getModel, getModelInputs, getModelNameWithVersion } from './lib/models.js'
 import { isValidToken, redactToken } from './lib/token.js'
+
+// Notify CLI users of newer versions
+updateNotifier({ pkg: packageJson }).notify()
 
 const readlineSync = await import('readline-sync').then(module => module.default)
 const __filename = fileURLToPath(import.meta.url)
