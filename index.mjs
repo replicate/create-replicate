@@ -120,5 +120,5 @@ if (args['run-after-setup']) {
 console.log('')
 console.log('To learn more about configuring this model check out the documentation:')
 console.log(` - Model API Documentation: https://replicate.com/${model.owner}/${model.name}/api`)
-console.log(' - Repliacte Documentation: https://replicate.com/docs/get-started/nodejs')
+console.log(' - Replicate Documentation: https://replicate.com/docs/get-started/nodejs')
 console.log(' - Replicate JavaScript Client: https://github.com/replicate/replicate-javascript#readme')
