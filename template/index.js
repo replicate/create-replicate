@@ -9,7 +9,9 @@ const replicate = new Replicate({
 const model = '{{MODEL}}'
 const input = '{{INPUTS}}'
 
-console.log({ model, input })
+console.log('Using model: %s', model)
+console.log('With input: %O', input)
+
 console.log('Running...')
 const output = await replicate.run(model, { input })
 console.log('Done!', output)
