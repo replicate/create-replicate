@@ -7,9 +7,14 @@ const replicate = new Replicate({
   userAgent: 'https://www.npmjs.com/package/create-replicate'
 })
 const model = '{{MODEL}}'
+const version = '{{VERSION}}'
 const input = '{{INPUTS}}'
 
 console.log({ model, input })
 console.log('Running...')
-const output = await replicate.run(model, { input })
-console.log('Done!', output)
+let prediction = await replicate.predictions.create({ version, input })
+prediction = await replicate.wait(prediction)
+
+console.log('Done!')
+console.log('Output:', prediction.output)
+console.log('View this prediction on the web:', `https://replicate.com/p/${prediction.id}`)
