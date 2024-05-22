@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/replicate/create-replicate/compare/v1.8.3...v1.9.0) (2024-05-06)
+
+
+### Features
+
+* include documentation links at end of script ([#45](https://github.com/replicate/create-replicate/issues/45)) ([114a161](https://github.com/replicate/create-replicate/commit/114a1614713100653ce6bac3b2677dc16e9fba11))
+
 ## [1.8.3](https://github.com/replicate/create-replicate/compare/v1.8.2...v1.8.3) (2024-02-27)
 
 
