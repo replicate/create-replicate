@@ -14,4 +14,5 @@ console.log('With input: %O', input)
 
 console.log('Running...')
 const output = await replicate.run(model, { input })
-console.log('Done!', output)
+console.log(output)
+console.log('Done!')
