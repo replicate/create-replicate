@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/replicate/create-replicate/compare/v1.9.0...v1.10.0) (2024-06-27)
+
+
+### Features
+
+* Update .gitignore ([#48](https://github.com/replicate/create-replicate/issues/48)) ([2cab591](https://github.com/replicate/create-replicate/commit/2cab591f2c7020108c542e42bb06de8020395acd))
+
 ## [1.9.0](https://github.com/replicate/create-replicate/compare/v1.8.3...v1.9.0) (2024-05-06)
 
 
