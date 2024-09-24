@@ -1,46 +1,48 @@
 {
-  "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/61004930-fb88-4e09-9bd4-74fd8b4aa677/sdxl_cover.png",
-  "created_at": "2023-07-26T17:53:09.882651Z",
+  "cover_image_url": "https://tjzk.replicate.delivery/models_models_cover_image/4c0ff159-ab97-4962-acdf-a0f422694a81/Replicate_Prediction_15.webp",
+  "created_at": "2024-07-29T23:25:06.100855Z",
   "default_example": {
-    "completed_at": "2023-10-12T17:10:12.909279Z",
-    "created_at": "2023-10-12T17:10:07.956869Z",
+    "completed_at": "2024-09-19T18:29:22.496556Z",
+    "created_at": "2024-09-19T18:29:19.288000Z",
+    "data_removed": false,
     "error": null,
-    "id": "dzsqmb3bg4lqpjkz2iptjqgccm",
+    "id": "jbwzpaxs71rm40cj1e5rqq33c0",
     "input": {
-      "width": 768,
-      "height": 768,
-      "prompt": "An astronaut riding a rainbow unicorn, cinematic, dramatic",
-      "refine": "expert_ensemble_refiner",
-      "scheduler": "K_EULER",
-      "lora_scale": 0.6,
+      "prompt": "black forest gateau cake spelling out the words \"FLUX DEV\", tasty, food photography, dynamic shot",
+      "go_fast": true,
+      "guidance": 3.5,
       "num_outputs": 1,
-      "guidance_scale": 7.5,
-      "apply_watermark": false,
-      "high_noise_frac": 0.8,
-      "negative_prompt": "",
+      "aspect_ratio": "1:1",
+      "output_format": "webp",
+      "output_quality": 80,
       "prompt_strength": 0.8,
-      "num_inference_steps": 25
+      "num_inference_steps": 28
     },
+    "logs": "running quantized prediction\ngenerating\nUsing seed: 9337\n  0%|          | 0/28 [00:00<?, ?it/s]\n  7%|▋         | 2/28 [00:00<00:01, 17.38it/s]\n 14%|█▍        | 4/28 [00:00<00:01, 12.53it/s]\n 21%|██▏       | 6/28 [00:00<00:01, 11.49it/s]\n 29%|██▊       | 8/28 [00:00<00:01, 11.06it/s]\n 36%|███▌      | 10/28 [00:00<00:01, 10.76it/s]\n 43%|████▎     | 12/28 [00:01<00:01, 10.50it/s]\n 50%|█████     | 14/28 [00:01<00:01, 10.46it/s]\n 57%|█████▋    | 16/28 [00:01<00:01, 10.46it/s]\n 64%|██████▍   | 18/28 [00:01<00:00, 10.44it/s]\n 71%|███████▏  | 20/28 [00:01<00:00, 10.40it/s]\n 79%|███████▊  | 22/28 [00:02<00:00, 10.26it/s]\n 86%|████████▌ | 24/28 [00:02<00:00, 10.29it/s]\n 93%|█████████▎| 26/28 [00:02<00:00, 10.34it/s]\n100%|██████████| 28/28 [00:02<00:00, 10.37it/s]\n100%|██████████| 28/28 [00:02<00:00, 10.65it/s]\nTotal safe images: 1 out of 1",
     "metrics": {
-      "predict_time": 4.981337
+      "image_count": 1,
+      "predict_time": 3.200260047,
+      "total_time": 3.208556
     },
-    "output": ["https://pbxt.replicate.delivery/YXbcLudoHBIYHV6L0HbcTx5iRzLFMwygLr3vhGpZI35caXbE/out-0.png"],
-    "started_at": "2023-10-12T17:10:07.927942Z",
+    "output": [
+      "https://replicate.delivery/yhqm/xU3wLlAQcGpZLVQipTVxaZMaL4omk9n7d1suU0byMnngfQvJA/out-0.webp"
+    ],
+    "started_at": "2024-09-19T18:29:19.296296Z",
     "status": "succeeded",
     "urls": {
-      "get": "https://api.replicate.com/v1/predictions/dzsqmb3bg4lqpjkz2iptjqgccm",
-      "cancel": "https://api.replicate.com/v1/predictions/dzsqmb3bg4lqpjkz2iptjqgccm/cancel"
+      "get": "https://api.replicate.com/v1/predictions/jbwzpaxs71rm40cj1e5rqq33c0",
+      "cancel": "https://api.replicate.com/v1/predictions/jbwzpaxs71rm40cj1e5rqq33c0/cancel"
     },
-    "model": "stability-ai/sdxl",
-    "version": "c221b2b8ef527988fb59bf24a8b97c4561f1c671f73bd389f866bfb27c061316",
-    "webhook_completed": null
+    "model": "replicate/flux-dev-internal-model",
+    "version": "2081ff3a5490ce6b6a2040d3d280a6beb2efbcf63851aabce421fbed8be6e9a2",
+    "webhook": "https://api.services.svc.cluster.local/_internal/webhook/official-model-prediction"
   },
-  "description": "A text-to-image generative AI model that creates beautiful images",
-  "github_url": "https://github.com/replicate/cog-sdxl",
+  "description": "A 12 billion parameter rectified flow transformer capable of generating images from text descriptions",
+  "github_url": "https://github.com/black-forest-labs/flux",
   "latest_version": {
-    "id": "39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
-    "created_at": "2023-11-06T23:13:07.906314Z",
-    "cog_version": "0.8.6",
+    "id": "93d72f81bd019dde2bfcba9585a6f74e600b13a43a96eb01a42da54f5ab4df6a",
+    "created_at": "2024-08-21T05:15:55.907176Z",
+    "cog_version": "0.9.13",
     "openapi_schema": {
       "info": {
         "title": "Cog",
@@ -108,15 +110,17 @@
                 "description": "Validation Error"
               }
             },
-            "parameters": [{
-              "in": "header",
-              "name": "prefer",
-              "schema": {
-                "type": "string",
-                "title": "Prefer"
-              },
-              "required": false
-            }],
+            "parameters": [
+              {
+                "in": "header",
+                "name": "prefer",
+                "schema": {
+                  "type": "string",
+                  "title": "Prefer"
+                },
+                "required": false
+              }
+            ],
             "description": "Run a single prediction on the model",
             "operationId": "predict_predictions_post",
             "requestBody": {
@@ -173,32 +177,37 @@
                 "description": "Validation Error"
               }
             },
-            "parameters": [{
-              "in": "path",
-              "name": "prediction_id",
-              "schema": {
-                "type": "string",
-                "title": "Prediction ID"
+            "parameters": [
+              {
+                "in": "path",
+                "name": "prediction_id",
+                "schema": {
+                  "type": "string",
+                  "title": "Prediction ID"
+                },
+                "required": true
               },
-              "required": true
-            }, {
-              "in": "header",
-              "name": "prefer",
-              "schema": {
-                "type": "string",
-                "title": "Prefer"
-              },
-              "required": false
-            }],
+              {
+                "in": "header",
+                "name": "prefer",
+                "schema": {
+                  "type": "string",
+                  "title": "Prefer"
+                },
+                "required": false
+              }
+            ],
             "description": "Run a single prediction on the model (idempotent creation).",
             "operationId": "predict_idempotent_predictions__prediction_id__put",
             "requestBody": {
               "content": {
                 "application/json": {
                   "schema": {
-                    "allOf": [{
-                      "$ref": "#/components/schemas/PredictionRequest"
-                    }],
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/PredictionRequest"
+                      }
+                    ],
                     "title": "Prediction Request"
                   }
                 }
@@ -232,15 +241,17 @@
                 "description": "Validation Error"
               }
             },
-            "parameters": [{
-              "in": "path",
-              "name": "prediction_id",
-              "schema": {
-                "type": "string",
-                "title": "Prediction ID"
-              },
-              "required": true
-            }],
+            "parameters": [
+              {
+                "in": "path",
+                "name": "prediction_id",
+                "schema": {
+                  "type": "string",
+                  "title": "Prediction ID"
+                },
+                "required": true
+              }
+            ],
             "description": "Cancel a running prediction",
             "operationId": "cancel_predictions__prediction_id__cancel_post"
           }
@@ -252,72 +263,37 @@
           "Input": {
             "type": "object",
             "title": "Input",
+            "required": [
+              "prompt"
+            ],
             "properties": {
-              "mask": {
-                "type": "string",
-                "title": "Mask",
-                "format": "uri",
-                "x-order": 3,
-                "description": "Input mask for inpaint mode. Black areas will be preserved, white areas will be inpainted."
-              },
               "seed": {
                 "type": "integer",
                 "title": "Seed",
-                "x-order": 11,
-                "description": "Random seed. Leave blank to randomize the seed"
+                "x-order": 7,
+                "description": "Random seed. Set for reproducible generation"
               },
               "image": {
                 "type": "string",
                 "title": "Image",
                 "format": "uri",
                 "x-order": 2,
-                "description": "Input image for img2img or inpaint mode"
-              },
-              "width": {
-                "type": "integer",
-                "title": "Width",
-                "default": 1024,
-                "x-order": 4,
-                "description": "Width of output image"
-              },
-              "height": {
-                "type": "integer",
-                "title": "Height",
-                "default": 1024,
-                "x-order": 5,
-                "description": "Height of output image"
+                "description": "Input image for image to image mode. The aspect ratio of your output will match this image"
               },
               "prompt": {
                 "type": "string",
                 "title": "Prompt",
-                "default": "An astronaut riding a rainbow unicorn",
                 "x-order": 0,
-                "description": "Input prompt"
+                "description": "Prompt for generated image"
               },
-              "refine": {
-                "allOf": [{
-                  "$ref": "#/components/schemas/refine"
-                }],
-                "default": "no_refiner",
-                "x-order": 12,
-                "description": "Which refine style to use"
-              },
-              "scheduler": {
-                "allOf": [{
-                  "$ref": "#/components/schemas/scheduler"
-                }],
-                "default": "K_EULER",
-                "x-order": 7,
-                "description": "scheduler"
-              },
-              "lora_scale": {
+              "guidance": {
                 "type": "number",
-                "title": "Lora Scale",
-                "default": 0.6,
-                "maximum": 1,
+                "title": "Guidance",
+                "default": 3.5,
+                "maximum": 10,
                 "minimum": 0,
-                "x-order": 16,
-                "description": "LoRA additive scale. Only applicable on trained models."
+                "x-order": 6,
+                "description": "Guidance for generated image. Ignored for flux-schnell"
               },
               "num_outputs": {
                 "type": "integer",
@@ -325,46 +301,37 @@
                 "default": 1,
                 "maximum": 4,
                 "minimum": 1,
-                "x-order": 6,
-                "description": "Number of images to output."
+                "x-order": 4,
+                "description": "Number of outputs to generate"
               },
-              "refine_steps": {
-                "type": "integer",
-                "title": "Refine Steps",
-                "x-order": 14,
-                "description": "For base_image_refiner, the number of steps to refine, defaults to num_inference_steps"
-              },
-              "guidance_scale": {
-                "type": "number",
-                "title": "Guidance Scale",
-                "default": 7.5,
-                "maximum": 50,
-                "minimum": 1,
-                "x-order": 9,
-                "description": "Scale for classifier-free guidance"
-              },
-              "apply_watermark": {
-                "type": "boolean",
-                "title": "Apply Watermark",
-                "default": true,
-                "x-order": 15,
-                "description": "Applies a watermark to enable determining if an image is generated in downstream applications. If you have other provisions for generating or deploying images safely, you can use this to disable watermarking."
-              },
-              "high_noise_frac": {
-                "type": "number",
-                "title": "High Noise Frac",
-                "default": 0.8,
-                "maximum": 1,
-                "minimum": 0,
-                "x-order": 13,
-                "description": "For expert_ensemble_refiner, the fraction of noise to use"
-              },
-              "negative_prompt": {
-                "type": "string",
-                "title": "Negative Prompt",
-                "default": "",
+              "aspect_ratio": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/aspect_ratio"
+                  }
+                ],
+                "default": "1:1",
                 "x-order": 1,
-                "description": "Input Negative Prompt"
+                "description": "Aspect ratio for the generated image"
+              },
+              "output_format": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/output_format"
+                  }
+                ],
+                "default": "webp",
+                "x-order": 8,
+                "description": "Format of the output images"
+              },
+              "output_quality": {
+                "type": "integer",
+                "title": "Output Quality",
+                "default": 80,
+                "maximum": 100,
+                "minimum": 0,
+                "x-order": 9,
+                "description": "Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png outputs"
               },
               "prompt_strength": {
                 "type": "number",
@@ -372,30 +339,24 @@
                 "default": 0.8,
                 "maximum": 1,
                 "minimum": 0,
-                "x-order": 10,
-                "description": "Prompt strength when using img2img / inpaint. 1.0 corresponds to full destruction of information in image"
-              },
-              "replicate_weights": {
-                "type": "string",
-                "title": "Replicate Weights",
-                "x-order": 17,
-                "description": "Replicate LoRA weights to use. Leave blank to use the default weights."
+                "x-order": 3,
+                "description": "Prompt strength when using img2img. 1.0 corresponds to full destruction of information in image"
               },
               "num_inference_steps": {
                 "type": "integer",
                 "title": "Num Inference Steps",
                 "default": 50,
-                "maximum": 500,
+                "maximum": 50,
                 "minimum": 1,
-                "x-order": 8,
-                "description": "Number of denoising steps"
+                "x-order": 5,
+                "description": "Number of denoising steps. Recommended range is 28-50"
               },
               "disable_safety_checker": {
                 "type": "boolean",
                 "title": "Disable Safety Checker",
                 "default": false,
-                "x-order": 18,
-                "description": "Disable safety checker for generated images. This feature is only available through the API. See https://replicate.com/docs/how-does-replicate-work#safety"
+                "x-order": 10,
+                "description": "Disable safety checker for generated images. This feature is only available through the API. See [https://replicate.com/docs/how-does-replicate-work#safety](https://replicate.com/docs/how-does-replicate-work#safety)"
               }
             }
           },
@@ -408,42 +369,74 @@
             "title": "Output"
           },
           "Status": {
-            "enum": ["starting", "processing", "succeeded", "canceled", "failed"],
+            "enum": [
+              "starting",
+              "processing",
+              "succeeded",
+              "canceled",
+              "failed"
+            ],
             "type": "string",
             "title": "Status",
             "description": "An enumeration."
           },
-          "refine": {
-            "enum": ["no_refiner", "expert_ensemble_refiner", "base_image_refiner"],
-            "type": "string",
-            "title": "refine",
-            "description": "An enumeration."
-          },
-          "scheduler": {
-            "enum": ["DDIM", "DPMSolverMultistep", "HeunDiscrete", "KarrasDPM", "K_EULER_ANCESTRAL", "K_EULER", "PNDM"],
-            "type": "string",
-            "title": "scheduler",
-            "description": "An enumeration."
-          },
           "WebhookEvent": {
-            "enum": ["start", "output", "logs", "completed"],
+            "enum": [
+              "start",
+              "output",
+              "logs",
+              "completed"
+            ],
             "type": "string",
             "title": "WebhookEvent",
+            "description": "An enumeration."
+          },
+          "aspect_ratio": {
+            "enum": [
+              "1:1",
+              "16:9",
+              "21:9",
+              "2:3",
+              "3:2",
+              "4:5",
+              "5:4",
+              "9:16",
+              "9:21"
+            ],
+            "type": "string",
+            "title": "aspect_ratio",
+            "description": "An enumeration."
+          },
+          "output_format": {
+            "enum": [
+              "webp",
+              "jpg",
+              "png"
+            ],
+            "type": "string",
+            "title": "output_format",
             "description": "An enumeration."
           },
           "ValidationError": {
             "type": "object",
             "title": "ValidationError",
-            "required": ["loc", "msg", "type"],
+            "required": [
+              "loc",
+              "msg",
+              "type"
+            ],
             "properties": {
               "loc": {
                 "type": "array",
                 "items": {
-                  "anyOf": [{
-                    "type": "string"
-                  }, {
-                    "type": "integer"
-                  }]
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
                 },
                 "title": "Location"
               },
@@ -489,7 +482,12 @@
                 "items": {
                   "$ref": "#/components/schemas/WebhookEvent"
                 },
-                "default": ["start", "output", "logs", "completed"]
+                "default": [
+                  "start",
+                  "output",
+                  "logs",
+                  "completed"
+                ]
               }
             }
           },
@@ -561,11 +559,12 @@
       }
     }
   },
-  "license_url": "https://github.com/Stability-AI/generative-models/blob/main/model_licenses/LICENSE-SDXL1.0",
-  "name": "sdxl",
-  "owner": "stability-ai",
-  "paper_url": "https://arxiv.org/abs/2307.01952",
-  "run_count": 35650209,
-  "url": "https://replicate.com/stability-ai/sdxl",
-  "visibility": "public"
+  "license_url": "https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev",
+  "name": "flux-dev",
+  "owner": "black-forest-labs",
+  "paper_url": null,
+  "run_count": 1797117,
+  "url": "https://replicate.com/black-forest-labs/flux-dev",
+  "visibility": "public",
+  "weights_url": null
 }

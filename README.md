@@ -5,7 +5,7 @@
 What it does:
 
 - Creates a directory for your project
-- Lets you specify any public model as a starting point, or defaults to [stability-ai/sdxl](https://replicate.com/stability-ai/sdxl)
+- Lets you specify any public model as a starting point, or defaults to [black-forest-labs/flux-dev](https://replicate.com/black-forest-labs/flux-dev)
 - Adds a package.json file with necessary dependencies like the [replicate](https://npm.im/replicate) npm package.
 - Runs `npm install`
 - Adds a .env file and helps you add your Replicate API token
