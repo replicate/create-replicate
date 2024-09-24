@@ -23,7 +23,7 @@ const args = minimist(process.argv.slice(2), {
   default: {
     'run-after-setup': true,
     debug: false,
-    model: 'stability-ai/sdxl'
+    model: 'black-forest-labs/flux-dev'
   }
 })
 args.packageName = args._[0] || 'my-replicate-app'
