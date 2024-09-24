@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.2](https://github.com/replicate/create-replicate/compare/v1.10.1...v1.10.2) (2024-09-24)
+
+
+### Bug Fixes
+
+* update default to flux ([#50](https://github.com/replicate/create-replicate/issues/50)) ([b3d5e2a](https://github.com/replicate/create-replicate/commit/b3d5e2acb7c0be5f13fa38abe576a3ae544056cf))
+
 ## [1.10.0](https://github.com/replicate/create-replicate/compare/v1.9.0...v1.10.0) (2024-06-27)
 
 
