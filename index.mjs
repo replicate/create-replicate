@@ -95,6 +95,7 @@ const model = await getModel(args.model)
 // If user has provided a model version, use it. Otherwise, use the latest version
 const modelVersionRegexp = /.*:[a-fA-F0-9]{64}$/
 const modelNameWithVersion = args.model.match(modelVersionRegexp) ? args.model : getModelNameWithVersion(model)
+const version = modelNameWithVersion.split(':')[1]
 
 const inputs = getModelInputs(model)
 
@@ -102,6 +103,7 @@ const indexFile = path.join(targetDir, 'index.js')
 const indexFileContents = fs.readFileSync(indexFile, 'utf8')
 const newContents = indexFileContents
   .replace('{{MODEL}}', modelNameWithVersion)
+  .replace('{{VERSION}}', version)
   .replace('\'{{INPUTS}}\'', JSON5.stringify(inputs, null, 2))
 fs.writeFileSync(indexFile, newContents)
 
