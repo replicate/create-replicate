@@ -1,0 +1,5 @@
+services:
+  app:
+    build: .
+    environment:
+      REPLICATE_API_TOKEN: ${REPLICATE_API_TOKEN}
